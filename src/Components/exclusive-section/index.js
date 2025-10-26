@@ -10,21 +10,28 @@ function ExclusiveSection() {
         <div className="content">
           <div className="left-side">
             <div className="product-content">
-              <h2>Smart Band 4</h2>
+              <h2>Console Microsoft Xbox Series S</h2>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-                unde ab dolores odit dolorem magni magnam reprehenderit odio ut,
-                veritatis sunt ea, totam iure iste voluptatem? Aperiam nobis
-                dolore accusantium?
+                A nova geração de consoles é liderada pelo Xbox Series S, que
+                chegou ao mercado para impressionar a todos. Sua potência e alto
+                desempenho permitem reduzir significativamente o tempo de
+                carregamento de jogos e conteúdo em comparação com outros
+                consoles. <br/><br/>Além disso, oferece a possibilidade de jogar
+                por horas enquanto se diverte com jogadores ao redor do mundo.
               </p>
             </div>
-            <Link to={"/products"} className="see-more-btn">
+            <Link to={"/produtos/5"} className="see-more-btn">
               <span>Ver Produto</span>
               <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
             </Link>
           </div>
           <div className="right-side">
-            <img src="/images/exclusive.png" alt="Smart Band 4" />
+            <Link to={"/produtos/5"}>
+              <img
+                src="/images/xbox-image.png"
+                alt="Console Microsoft Xbox Series S"
+              />
+            </Link>
           </div>
         </div>
       </div>

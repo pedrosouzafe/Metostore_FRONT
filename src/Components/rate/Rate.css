@@ -1,0 +1,14 @@
+.rate-component {
+    display: inline-block;
+    font-size: 1.2rem;
+  }
+  
+  .filledStars {
+    color: var(--primary-color);
+  }
+  
+  .stars {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--primary-color); 
+  }
+  

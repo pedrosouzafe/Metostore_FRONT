@@ -6,74 +6,117 @@
     --light-color: #e9e9e9;
     --dark-color: #2c2c2c;
   }
-
-.product {
+  
+  .product {
     padding: 1rem;
     border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-}
-
-.product .buttons {
+    justify-content: space-between;
+    height: 370px;
+    width: 260px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s ease;
+  }
+  
+  .product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Imagem sempre alinhada */
+  .product img {
+    height: 180px;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+  }
+  
+  /* Nome */
+  .product .name {
+    font-weight: 600;
+    margin-top: 0.6rem;
+    font-size: .9rem;
+    color: var(--dark-color);
+    text-align: left;
+    height: 2.3rem;
+    overflow: hidden;
+  }
+  
+  /* Preço + Estrelas juntos */
+  .price-rate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.4rem;
+  }
+  
+  .product .price {
+    font-size: 1rem;
+    color: var(--dark-color);
+  }
+  
+  .product .price span {
+    font-weight: bold;
+    color: var(--secondary-color);
+  }
+  
+  .product .rate {
+    color: var(--dark-secondary-color);
+    font-size: 1.2rem;
+  }
+  
+  /* Botão */
+  .product .buttons {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.btn-icon {
+    margin-top: auto;
+  }
+  
+  .btn-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.4rem;
     padding: 0.8rem;
     background-color: var(--primary-color);
-    color: #ffff;
+    color: #fff;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
     transition: all 0.2s;
-}
-
-.btn-icon:hover {
+  }
+  
+  .btn-icon:hover {
     background-color: var(--dark-primary-color);
-}
-
-.add-to-cart-btn {
+  }
+  
+  .add-to-cart-btn {
     background-color: var(--secondary-color);
-}
-
-.add-to-cart-btn:hover {
+  }
+  
+  .add-to-cart-btn:hover {
     background-color: var(--dark-secondary-color);
-}
-
-.product .name {
-    font-weight: bold;
-    margin-top: 0.4rem;
-}
-
-.product .price {
-    margin-top: 0.4rem;
-}
-
-.product .price span {
-    font-weight: bold;
-}
-
-.product .rate {
-    color: var(--dark-secondary-color);
-    font-size: 1.3rem;
-}
-
-.price-rate {
-    display: flex;
-    justify-content: space-between;
-}
-
-@media (max-width: 800px) {
-    .product .name, .product .price, .product .rate {
-        max-width: 15rem;
-        overflow: hidden;
-        font-size: 0.8rem;
+  }
+  
+  @media (max-width: 800px) {
+    .product {
+      width: 45vw;
+      height: auto;
     }
-}
+  
+    .product img {
+      height: 140px;
+    }
+  
+    .product .name,
+    .product .price,
+    .product .rate {
+      font-size: 0.9rem;
+    }
+  }
+  

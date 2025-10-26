@@ -1,0 +1,48 @@
+
+
+.numbers-pagination {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 6px 10px;
+    cursor: pointer;
+    margin: 0 3px;
+    transition: all 0.2s ease;
+}
+
+.numbers-pagination:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.total-products {
+    white-space: nowrap; 
+    font-size: 14px;
+    color: #333;
+}
+
+.pagination-page {
+    width: 100vw; 
+    position: relative;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 20px 0;
+    margin-left: calc(-50vw + 50%); 
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.total-products {
+    position: absolute;
+    right: 40px;
+    font-size: 14px;
+    color: #333;
+    font-weight: 200;
+    white-space: nowrap;
+}
+

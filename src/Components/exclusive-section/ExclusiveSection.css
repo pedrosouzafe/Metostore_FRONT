@@ -30,24 +30,37 @@
 
 .exclusive-section .content .right-side img {
     max-width: 500px;
+    margin-right: 40px;
 }
 
 .exclusive-section .content .left-side .see-more-btn {
-    background-color: var(--dark-secondary-color); border-radius: 8px; transition: all 0.2s; display: flex; max-width: 145px; justify-content: space-between; align-items: center; 
+    background: linear-gradient(90deg, #ff5f6d, #ff8e53); /* Gradiente laranja-avermelhado */
+    color: #fff;
+    border: none;
+    border-radius: 50px; 
+    padding: 0.9rem 2rem;
     font-weight: 600;
-    max-width: 10.5rem;
-    letter-spacing: 0.5px;
-    padding: 1rem 1.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-   } 
-   
-   .exclusive-section .content .left-side .see-more-btn:hover { 
-       background-color: var(--dark-primary-color); max-width: 170px; 
-       transform: scale(1.05);
-       max-width: 11.3rem;
-       box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-}
- 
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    max-width: 11.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+  }
+  
+
+  .exclusive-section .content .left-side .see-more-btn:hover {
+    transform: scale(1.05);
+    max-width: 12.6rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(90deg, #ff8e53, #ff5f6d);
+  }
+  
 
 @media (max-width: 800px) {
     .exclusive-section .content {
@@ -55,7 +68,7 @@
     }
 
     .exclusive-section .content .right-side img {
-        max-width: 250px;
+        max-width: 280px;
         margin-bottom: 3rem;
     }
 

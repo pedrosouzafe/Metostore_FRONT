@@ -4,30 +4,48 @@ import { faMoneyBill, faXmark } from "@fortawesome/free-solid-svg-icons";
 import SidebarProduct from "../sidebar-product";
 import { Link } from "react-router-dom";
 
-function SidebarCart() {
+function SidebarCart({
+  setSidebarCart,
+  showSidebarCart,
+  selectedProducts,
+  cartTotal,
+  removeProductFromCart,
+  addToCartTotal,
+}) {
   return (
-    <aside className="sidebar-cart">
+    <aside className={`sidebar-cart ${showSidebarCart && "show"}`}>
       <div className="top">
         <h3>Seu carrinho</h3>
-        <button>
+        <button onClick={() => setSidebarCart(false)}>
           <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
         </button>
       </div>
 
       <div className="sidebar-products-list">
-        <SidebarProduct></SidebarProduct>
+        {selectedProducts.map((product) => (
+          <SidebarProduct
+            key={product.id}
+            {...product}
+            removeProductFromCart={removeProductFromCart}
+            addToCartTotal={addToCartTotal}
+          />
+        ))}
       </div>
 
-      <div className="total-container">
-        <b>Total: </b> R$3000.00
-      </div>
+      {cartTotal === 0 ? (
+        <i>Seu carrinho está vazio!</i>
+      ) : (
+        <>
+          <div className="total-container">
+            <b>Total: </b> R${cartTotal}
+          </div>
 
-      <Link to="/cart/checkout" className="btn-icon">
-        <span>Pagar Agora</span>
-        <FontAwesomeIcon icon={faMoneyBill} />
-      </Link>
-
-      <i>Seu carrinho está vazio!</i>
+          <Link to="/cart/checkout" className="btn-icon">
+            <span>Pagar Agora</span>
+            <FontAwesomeIcon icon={faMoneyBill} />
+          </Link>
+        </>
+      )}
     </aside>
   );
 }
