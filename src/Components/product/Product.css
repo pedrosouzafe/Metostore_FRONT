@@ -26,7 +26,6 @@
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
   }
   
-  /* Imagem sempre alinhada */
   .product img {
     height: 180px;
     width: 100%;
@@ -34,7 +33,6 @@
     border-radius: 6px;
   }
   
-  /* Nome */
   .product .name {
     font-weight: 600;
     margin-top: 0.6rem;
@@ -45,7 +43,6 @@
     overflow: hidden;
   }
   
-  /* Preço + Estrelas juntos */
   .price-rate {
     display: flex;
     justify-content: space-between;
@@ -68,7 +65,6 @@
     font-size: 1.2rem;
   }
   
-  /* Botão */
   .product .buttons {
     display: flex;
     flex-direction: column;
@@ -95,12 +91,13 @@
     background-color: var(--dark-primary-color);
   }
   
-  .add-to-cart-btn {
-    background-color: var(--secondary-color);
+  .add-to-cart-list {
+    background: linear-gradient(90deg, #3b86dd, hsl(197, 88%, 46%));
   }
   
-  .add-to-cart-btn:hover {
-    background-color: var(--dark-secondary-color);
+  .add-to-cart-list:hover {
+    background: linear-gradient(90deg, hsl(187, 100%, 52%), #2d8af3);
+    transform: scale(1.01);
   }
   
   @media (max-width: 800px) {

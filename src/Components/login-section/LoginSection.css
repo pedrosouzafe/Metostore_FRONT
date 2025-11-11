@@ -1,0 +1,261 @@
+
+
+.login-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: calc(100vh - 80px);
+  background: #fff;
+}
+
+.login-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.login-main-container {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.erro {
+  color: #d32f2f;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.login-title {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.toggle-sign-in {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  background: #f0f0f0;
+  overflow: hidden;
+}
+
+.toggle-sign-in button {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 12px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #555;
+}
+
+.toggle-sign-in button:hover {
+  background: #e6e6e6;
+}
+
+.toggle-sign-in .entrar.active,
+.toggle-sign-in .cadastrar.active {
+  background: #007bff;
+  color: #fff;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-field {
+  display: flex;
+  align-items: center;
+  background: #eeeeee;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.input-field:hover {
+  border-color: #007bff;
+}
+
+.input-field svg {
+  color: #888;
+  margin-right: 12px;
+  font-size: 1.1rem;
+}
+
+.input-field input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 1rem;
+  color: #333;
+}
+
+.input-field:focus-within svg {
+  color: #0056d2;
+}
+
+.senha-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-senha {
+  position: absolute;
+  right: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.toggle-senha:hover {
+  color: #000;
+}
+
+.senha-container input {
+  padding-right: 2rem;
+}
+
+.submit-container button {
+  width: 100%;
+  background: #007bff;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-container button:hover {
+  background: #0056d2;
+}
+
+.login-right {
+  position: relative;
+  overflow: hidden;
+}
+
+.login-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+
+@media (max-width: 900px) { 
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+
+  .login-right {
+    display: none;
+  }
+
+  .login-left {
+    padding: 2rem;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem 3rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  animation: scaleIn 0.3s ease;
+}
+
+.modal-content h3 {
+  color: #029aff;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.modal-content button {
+  background-color: #029aff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.modal-content button:hover {
+  background-color: #0078cc;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid #fff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

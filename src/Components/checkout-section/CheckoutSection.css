@@ -1,0 +1,335 @@
+
+.checkout-section {
+  display: flex;
+  justify-content: center;
+  background-color: #f7f8fa;
+  padding: 3rem 1.5rem;
+  min-height: 30vh;
+  font-family: "Lato", sans-serif;
+}
+
+.checkout-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.checkout-products {
+  flex: 2;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.checkout-products h2 {
+  font-size: 1.6rem;
+  color: var(--dark-primary-color, #00315f);
+  margin-bottom: 1.5rem;
+}
+
+.products-list-checkout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.empty-cart {
+  text-align: center;
+  color: #666;
+  margin-top: 3rem;
+  font-size: 1.1rem;
+}
+
+.checkout-summary {
+  flex: 1;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+  position: sticky;
+  top: 120px;
+  align-self: flex-start;
+}
+
+.checkout-summary h2 {
+  font-size: 1.6rem;
+  color: var(--dark-primary-color, #00315f);
+  margin-bottom: 1.5rem;
+}
+
+.summary-details {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 1.2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.summary-line,
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: #333;
+}
+
+.summary-total {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-top: 0.8rem;
+}
+
+.free-shipping {
+  color: #2ecc71;
+  font-weight: 600;
+}
+
+
+
+.checkout-button {
+  margin-top: 1.5rem;
+  background: linear-gradient(90deg, #ff5f6d, #ff8e53);
+  color: #fff;
+  border: none;
+  padding: 0.9rem 1.2rem;
+  width: 100%;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.checkout-button:hover {
+  transform: scale(1.01);
+  background: linear-gradient(90deg, #ff8e53, #ff5f6d);
+}
+
+.sidebar-product.checkout-version {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sidebar-product.checkout-version:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-product.checkout-version .product-image {
+  flex: 0 0 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-product.checkout-version .product-image img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.sidebar-product.checkout-version .product-info {
+  flex: 1;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.sidebar-product.checkout-version .product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.sidebar-product.checkout-version .product-header h4 {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+  line-height: 1.2;
+  max-width: 260px;
+}
+
+.sidebar-product.checkout-version .remove-product-btn {
+  background: none;
+  border: none;
+  color: #777;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.sidebar-product.checkout-version .remove-product-btn:hover {
+  color: red;
+}
+
+.sidebar-product.checkout-version .unit-price {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.sidebar-product.checkout-version .product-total {
+  text-align: right;
+  min-width: 90px;
+}
+
+.sidebar-product.checkout-version .total-label {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.sidebar-product.checkout-version .total-price {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #111;
+}
+
+.sidebar-product.checkout-version .quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+
+.sidebar-product.checkout-version .quantity-control button {
+  background: #f2f2f2;
+  border: 1px solid #ccc;
+  color: #333;
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sidebar-product.checkout-version .quantity-control button:hover {
+  background: var(--primary-color, #007bff);
+  color: white;
+}
+
+.sidebar-product.checkout-version .quantity-control input {
+  width: 45px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  height: 28px;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.sidebar-product.checkout-version .stock-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}
+
+.sidebar-product.checkout-version .stock-info svg {
+  color: #777;
+  font-size: 0.8rem;
+}
+
+.sidebar-product.checkout-version .in-stock {
+  color: #2ecc71;
+}
+
+.sidebar-product.checkout-version .low-stock {
+  color: #e67e22;
+}
+
+@media (max-width: 900px) {
+  .checkout-container {
+    flex-direction: column;
+  }
+
+  .checkout-summary {
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar-product.checkout-version {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .sidebar-product.checkout-version .product-image img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .sidebar-product.checkout-version .product-total {
+    align-self: flex-end;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem 3rem;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.3s ease;
+}
+
+.spinner {
+  border: 3px solid #ccc;
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 0.8s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+

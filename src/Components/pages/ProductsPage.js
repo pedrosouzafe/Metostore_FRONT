@@ -26,7 +26,7 @@ function ProductsPage({
     if (pageZeroBased >= 0 && pageZeroBased < totalPage) {
       setCurrentPage(pageZeroBased);
       setSearchParams({ page: pageZeroBased + 1 });
-      window.scrollTo({ top: 0, behavior: "smooth" }); // aqui também funciona
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 

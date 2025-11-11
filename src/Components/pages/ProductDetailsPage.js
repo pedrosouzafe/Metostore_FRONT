@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import ProductDetails from "../product-details";
 
-function ProductDetailsPage({ addProductToCart }) {
+function ProductDetailsPage({ addProductToCart, user }) {
   const { id } = useParams();
 
   return (
@@ -9,6 +9,7 @@ function ProductDetailsPage({ addProductToCart }) {
       <ProductDetails
         id={id}
         addProductToCart={addProductToCart}
+        user={user}
       ></ProductDetails>
     </>
   );

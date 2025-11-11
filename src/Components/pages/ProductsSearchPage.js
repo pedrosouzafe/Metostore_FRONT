@@ -59,7 +59,7 @@ function ProductsSearchPage({ addProductToCart }) {
     };
 
     fetchProducts();
-  }, [searchParams]); // 👈 sempre dispara quando qualquer query param mudar
+  }, [searchParams]);
 
   const handlePageChange = (newPage) => {
     if (newPage >= 0 && newPage < totalPages) {

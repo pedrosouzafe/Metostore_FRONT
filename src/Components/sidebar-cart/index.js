@@ -11,9 +11,11 @@ function SidebarCart({
   cartTotal,
   removeProductFromCart,
   addToCartTotal,
+  setQuantity,
+  quantidade,
 }) {
   return (
-    <aside className={`sidebar-cart ${showSidebarCart && "show"}`}>
+    <aside className={`sidebar-cart ${showSidebarCart ? "show" : ""}`}>
       <div className="top">
         <h3>Seu carrinho</h3>
         <button onClick={() => setSidebarCart(false)}>
@@ -22,27 +24,30 @@ function SidebarCart({
       </div>
 
       <div className="sidebar-products-list">
-        {selectedProducts.map((product) => (
-          <SidebarProduct
-            key={product.id}
-            {...product}
-            removeProductFromCart={removeProductFromCart}
-            addToCartTotal={addToCartTotal}
-          />
-        ))}
+        {selectedProducts.length === 0 ? (
+          <i>Seu carrinho está vazio!</i>
+        ) : (
+          selectedProducts.map((product) => (
+            <SidebarProduct
+              setQuantity={setQuantity}
+              quantidade={quantidade}
+              key={product.id}
+              {...product}
+              removeProductFromCart={removeProductFromCart}
+              addToCartTotal={addToCartTotal}
+            />
+          ))
+        )}
       </div>
 
-      {cartTotal === 0 ? (
-        <i>Seu carrinho está vazio!</i>
-      ) : (
+      {cartTotal > 0 && (
         <>
           <div className="total-container">
-            <b>Total: </b> R${cartTotal}
+            <b>Total: </b> R${cartTotal.toFixed(2)}
           </div>
 
-          <Link to="/cart/checkout" className="btn-icon">
-            <span>Pagar Agora</span>
-            <FontAwesomeIcon icon={faMoneyBill} />
+          <Link to="/cart/checkout" className="add-to-cart">
+            <span>Finalizar Pedido</span>
           </Link>
         </>
       )}

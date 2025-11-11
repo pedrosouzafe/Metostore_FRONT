@@ -1,0 +1,62 @@
+.sidebar-product {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: #fff;
+    border-radius: 12px;
+    padding: 0.75rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .product-image img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+  }
+  
+  .product-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  
+  .product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .product-header h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0;
+    word-break: break-word;
+    max-width: 200px;
+  }
+  
+  .remove-product-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .quantity-control input {
+    width: 40px;
+    text-align: center;
+  }
+  
+  .stock-info {
+    font-size: 0.8rem;
+    color: #555;
+  }
+  

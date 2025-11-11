@@ -19,10 +19,9 @@ function Product({ id, image, name, rate, price, addProductToCart }) {
         </div>
         <div className="buttons">
           <button
-            className="btn-icon add-to-cart-btn"
+            className="btn-icon  add-to-cart-list"
             onClick={() => addProductToCart(id)}
           >
-            <FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>
             <span>Comprar agora</span>
           </button>
         </div>

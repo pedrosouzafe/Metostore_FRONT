@@ -6,12 +6,15 @@ import {
   faCircleInfo,
 } from "@fortawesome/free-solid-svg-icons";
 import Rate from "../rate";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function ProductDetails({ id, addProductToCart }) {
+function ProductDetails({ id, addProductToCart, user }) {
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
   const [currentImage, setCurrentImage] = useState(-1);
   const [currentUrlImage, setCurrentUrlImage] = useState(product.image);
+  const navigate = useNavigate();
 
   const handleImage = (index) => {
     setCurrentImage(index);
@@ -86,9 +89,18 @@ function ProductDetails({ id, addProductToCart }) {
 
       <div className="buy-box">
         <div className="price-section">
-          <h3 className="price">
-            R$ {String(product.price).replace(".", ",")}
-          </h3>
+          <div className="top-price">
+            <h3 className="price">
+              R$ {String(product.price).replace(".", ",")}
+            </h3>
+            <button
+              className="fa-cart-icon"
+              onClick={() => addProductToCart(product.id)}
+            >
+              <FontAwesomeIcon icon={faCartShopping} />
+            </button>
+          </div>
+
           <p className="installments">
             <span>R$ {product.price}</span> em até 10x de{" "}
             <span>R$ {(product.price / 10).toFixed(2).replace(".", ",")}</span>{" "}
@@ -99,13 +111,19 @@ function ProductDetails({ id, addProductToCart }) {
           </p>
         </div>
 
-        <button
-          className="add-to-cart"
-          onClick={() => addProductToCart(product.id)}
-        >
-          <FontAwesomeIcon icon={faCartShopping} />
-          <span>Adicionar ao carrinho</span>
-        </button>
+        {user === undefined ? (
+          <Link to="/auth/login" className="login-btn-product-details">
+            Registrar-se ou Entrar com sua conta
+          </Link>
+        ) : (
+          <Link
+            to="/cart/checkout"
+            onClick={() => addProductToCart(product.id)}
+            className="add-to-cart"
+          >
+            <span>Comprar Agora</span>
+          </Link>
+        )}
       </div>
     </div>
   );

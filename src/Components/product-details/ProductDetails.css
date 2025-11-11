@@ -6,7 +6,6 @@
   align-items: flex-start;
 }
 
-/* Galeria de imagens (esquerda) */
 .product-gallery {
   display: flex;
   flex-direction: column;
@@ -45,7 +44,6 @@
   border-color: #ff6600;
 }
 
-/* Centro - informações do produto */
 .product-info {
   background: #fff;
   border-radius: 12px;
@@ -109,7 +107,6 @@
   color: #444;
 }
 
-/* Direita - Box de compra */
 .buy-box {
   position: sticky;
   top: 20px;
@@ -152,6 +149,21 @@
   margin-top: 5px;
 }
 
+.top-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-price svg {
+  color: #ff6600;
+  cursor: pointer;
+}
+
+.fa-cart-icon {
+  font-size: 1.1rem;
+}
+
 .add-to-cart {
   display: flex;
   align-items: center;
@@ -172,7 +184,26 @@
   background: linear-gradient(90deg, #ff8e53, #ff5f6d);
 }
 
-/* Spinner */
+.login-btn-product-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(90deg, #16c7f3, #1448f3);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.login-btn-product-details:hover {
+  transform: scale(1.01);
+  background: linear-gradient(90deg, #1448f3, #16c7f3);
+}
+
 .loading-spinner {
   border: 5px solid #f3f3f3;
   border-top: 5px solid #ff6600;
@@ -190,7 +221,6 @@
 }
 
 
-/* Tablets (≤ 1024px) */
 @media (max-width: 1024px) {
   .product-details-container {
     grid-template-columns: 1fr 1fr;
@@ -210,8 +240,6 @@
     max-width: 350px;
   }
 }
-
-/* Celulares (≤ 768px) */
 @media (max-width: 768px) {
   .product-details-container {
     grid-template-columns: 1fr;
@@ -250,7 +278,6 @@
   }
 }
 
-/* Celulares pequenos (≤ 480px) */
 @media (max-width: 480px) {
   .product-title {
     font-size: 1.2rem;

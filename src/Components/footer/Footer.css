@@ -2,34 +2,34 @@
 
 
 footer {
-    background: linear-gradient(160deg, #f8fbff, #e8f3fb); /* azul bem claro */
+    background: linear-gradient(160deg, #f8fbff, #e8f3fb); 
     color: var(--dark-color);
     font-family: "Lato", sans-serif;
   }
   
   footer .content {
     display: flex;
-    justify-content: center; /* centraliza todo o conjunto */
-    align-items: center;     /* alinha verticalmente */
+    justify-content: center; 
+    align-items: center;     
     flex-wrap: wrap;
     @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Ramaraja&display=swap');
 
 
     footer {
-        background: linear-gradient(160deg, #f8fbff, #e8f3fb); /* azul bem claro */
+        background: linear-gradient(160deg, #f8fbff, #e8f3fb); 
         color: var(--dark-color);
         font-family: "Lato", sans-serif;
       }
       
       footer .content {
         display: flex;
-        justify-content: center; /* centraliza todo o conjunto */
-        align-items: center;     /* alinha verticalmente */
+        justify-content: center; 
+        align-items: center;    
         flex-wrap: wrap;
-        text-align: center;      /* garante que o texto fique centralizado */
+        text-align: center;    
         padding: 3.5rem 2rem;
         gap: 3rem;
-        max-width: 1000px;       /* limita a largura para não "espalhar" demais */
+        max-width: 1000px;       
         margin: auto;
       }
       
@@ -117,7 +117,7 @@ footer {
         padding: 1.5rem;
         font-size: 0.9rem;
         color: #666;
-        background-color: #f1f7fc; /* mais claro ainda */
+        background-color: #f1f7fc;
       }
       
       @media (max-width: 800px) {
@@ -142,7 +142,7 @@ footer {
       
     padding: 3.5rem 2rem;
     gap: 3rem;
-    max-width: 1000px;       /* limita a largura para não "espalhar" demais */
+    max-width: 1000px;      
     margin: auto;
   }
   

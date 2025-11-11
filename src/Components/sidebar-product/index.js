@@ -1,59 +1,87 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPlus,
+  faMinus,
+  faXmark,
+  faBoxOpen,
+} from "@fortawesome/free-solid-svg-icons";
 import "./SidebarProduct.css";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function SidebarProduct({
   id,
   image,
   name,
-  rate,
   price,
-  addProductToCart,
+  quantity,
   removeProductFromCart,
   addToCartTotal,
+  className = "",
+  increaseQuantity,
+  decreaseQuantity,
+  cartQuantity,
 }) {
-  const [quantity, setQuantity] = useState(1);
-  const [priceSum, setPriceSum] = useState(price);
+  const [quantidade, setQuantity] = useState(1);
+  const prevQuantity = useRef(1);
 
-  const changeCartTotal = () => {};
+  const handleQuantityChange = (newQuantity) => {
+    if (newQuantity < 1 || newQuantity > quantity) return;
+    const diff = newQuantity - prevQuantity.current;
+    addToCartTotal(diff * price);
+    setQuantity(newQuantity);
+    prevQuantity.current = newQuantity;
+  };
+
+  const totalProductPrice = price * quantidade;
 
   return (
-    <div className="sidebar-product">
-      <div className="left-side">
-        <button
-          className="remove-product-btn"
-          onClick={() => {
-            removeProductFromCart(id);
-            addToCartTotal(-priceSum);
-          }}
-        >
-          <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
-        </button>
-        <div className="details">
+    <div className={`sidebar-product ${className}`}>
+      <div className="product-image">
+        <img src={image} alt={name} />
+      </div>
+
+      <div className="product-info">
+        <div className="product-header">
           <h4>{name}</h4>
-          <p>R${price}</p>
+          <button
+            className="remove-product-btn"
+            onClick={() => {
+              removeProductFromCart(id);
+              addToCartTotal(-totalProductPrice);
+            }}
+            title="Remover produto"
+          >
+            <FontAwesomeIcon icon={faXmark} />
+          </button>
+        </div>
+
+        <p className="unit-price">R$ {price.toFixed(2)}</p>
+
+        <div className="quantity-control">
+          <button onClick={() => decreaseQuantity(id)}>
+            <FontAwesomeIcon icon={faMinus} />
+          </button>
           <input
             type="number"
             min={1}
-            max={100}
-            value={quantity}
-            onChange={(e) => {
-              setQuantity(e.target.value);
-              addToCartTotal(e.target.value * price - priceSum);
-              setPriceSum(e.target.value * price);
-            }}
+            max={quantity}
+            value={cartQuantity}
+            readOnly
           />
-          {priceSum > price && (
-            <p className="price-sum">
-              <b>Valor Total: </b> R${priceSum}
-            </p>
-          )}
+          <button onClick={() => increaseQuantity(id)}>
+            <FontAwesomeIcon icon={faPlus} />
+          </button>
         </div>
+
+        <p className={`stock-info ${quantity <= 2 ? "low-stock" : "in-stock"}`}>
+          <FontAwesomeIcon icon={faBoxOpen} />
+          {quantity === 1 ? " Último disponível" : `${quantity} disponíveis`}
+        </p>
       </div>
 
-      <div className="right-side">
-        <img src={image} alt={name} />
+      <div className="total-sidebar-product">
+        <p className="total-label">Total</p>
+        <p className="total-price">R$ {totalProductPrice.toFixed(2)}</p>
       </div>
     </div>
   );

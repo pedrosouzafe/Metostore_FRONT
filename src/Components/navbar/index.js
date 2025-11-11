@@ -6,14 +6,18 @@ import {
   faSearch,
   faShoppingCart,
   faChevronDown,
+  faUser,
+  faClockRotateLeft,
+  faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Navbar({ setSidebarCart, selectedProducts }) {
+function Navbar({ setSidebarCart, selectedProducts, loading, user, setUser }) {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [query, setQuery] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdownUser, setDropdownUser] = useState(false);
 
   const pesquisarProdutos = () => {
     if (!query.trim()) return;
@@ -21,13 +25,17 @@ function Navbar({ setSidebarCart, selectedProducts }) {
   };
 
   const handleEnter = (event) => {
-    if (event.key === "Enter") {
-      pesquisarProdutos();
-    }
+    if (event.key === "Enter") pesquisarProdutos();
   };
 
   useEffect(() => {
     const handleClickOutside = (e) => {
+      if (
+        !e.target.closest(".dropdown-user-menu") &&
+        !e.target.closest(".account-container")
+      ) {
+        setDropdownUser(false);
+      }
       if (!e.target.closest(".dropdown")) {
         setDropdownOpen(false);
       }
@@ -90,10 +98,10 @@ function Navbar({ setSidebarCart, selectedProducts }) {
                   <div className="dropdown-section">
                     <h4>Filtrar por</h4>
                     <Link to="/produtos/busca?filtro=price_asc">
-                      Preço: menor → maior
+                      Menores preços
                     </Link>
                     <Link to="/produtos/busca?filtro=price_desc">
-                      Preço: maior → menor
+                      Maiores preços
                     </Link>
                     <Link to="/produtos/busca?filtro=best_rated">
                       Melhor avaliados
@@ -126,6 +134,48 @@ function Navbar({ setSidebarCart, selectedProducts }) {
             <FontAwesomeIcon icon={faShoppingCart} />
             <div className="products-count">{selectedProducts.length}</div>
           </button>
+
+          <div className="login-container">
+            {user === undefined ? (
+              <Link to={"/auth/login"} className="login-link">
+                Entrar
+              </Link>
+            ) : (
+              <div
+                className="account-container"
+                onClick={() => setDropdownUser((prev) => !prev)}
+              >
+                <div className="circle-account">
+                  <FontAwesomeIcon icon={faUser} />
+                </div>
+                <p>{user.name}</p>
+                <FontAwesomeIcon icon={faChevronDown} />
+
+                {dropdownUser && (
+                  <div className="dropdown-user-menu">
+                    <Link
+                      to={`pedidos/user/${user.id}`}
+                      className="user-option"
+                    >
+                      <FontAwesomeIcon icon={faClockRotateLeft} />
+                      Pedidos
+                    </Link>
+                    <div
+                      className="user-option logout"
+                      onClick={() => {
+                        localStorage.removeItem("user");
+                        setUser(undefined);
+                        navigate("/");
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faRightFromBracket} />
+                      Sair
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
 
           <button className="menu-button" onClick={() => setShow(!show)}>
             <FontAwesomeIcon icon={faBars} />
