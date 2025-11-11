@@ -11,6 +11,7 @@ import ProductsSearchPage from "./Components/pages/ProductsSearchPage";
 import LoginPage from "./Components/pages/LoginPage";
 import CheckoutPage from "./Components/pages/CheckoutPage";
 import OrdersPage from "./Components/pages/OrdersPage";
+const API_URL = process.env.REACT_APP_API_URL;
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -46,7 +47,7 @@ function App() {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:8080/products?size=12")
+    fetch(`${API_URL}/products?size=12`)
       .then((res) => res.json())
       .then((data) => setProducts(data.content))
       .finally(() => setLoading(false));
@@ -56,9 +57,7 @@ function App() {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const response = await fetch(
-          `http://localhost:8080/products?page=${currentPage}`
-        );
+        const response = await fetch(`${API_URL}/products?page=${currentPage}`);
         const data = await response.json();
 
         setTotalPage(data.totalPages);
@@ -75,7 +74,7 @@ function App() {
   }, [currentPage]);
 
   const fetchProduct = async (id) => {
-    const productFetch = await fetch(`http://localhost:8080/products/${id}`)
+    const productFetch = await fetch(`${API_URL}/products/${id}`)
       .then((res) => res.json())
       .catch((err) => alert(err));
 

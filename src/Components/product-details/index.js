@@ -7,14 +7,15 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Rate from "../rate";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
+const API_URL = process.env.REACT_APP_API_URL;
 
 function ProductDetails({ id, addProductToCart, user }) {
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
   const [currentImage, setCurrentImage] = useState(-1);
   const [currentUrlImage, setCurrentUrlImage] = useState(product.image);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const handleImage = (index) => {
     setCurrentImage(index);
@@ -26,7 +27,7 @@ function ProductDetails({ id, addProductToCart, user }) {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:8080/products/${id}`)
+    fetch(`${API_URL}/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);

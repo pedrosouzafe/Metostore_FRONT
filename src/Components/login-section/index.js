@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
+const API_URL = process.env.REACT_APP_API_URL;
 
 function LoginSection({ loading, setLoading, user, setUser }) {
   const [email, setEmail] = useState("");
@@ -16,7 +17,6 @@ function LoginSection({ loading, setLoading, user, setUser }) {
   const [name, setName] = useState("");
   const [mostrarSenha, setMostrarSenha] = useState(false);
   const [stateLogin, setStateLogin] = useState(true);
-  const [erro, setErro] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ function LoginSection({ loading, setLoading, user, setUser }) {
     setLoading(true);
 
     setTimeout(() => {
-      fetch("http://localhost:8080/auth/login", {
+      fetch(`${API_URL}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -54,7 +54,6 @@ function LoginSection({ loading, setLoading, user, setUser }) {
           }, 2000);
         })
         .catch((error) => {
-          setErro(error.message);
           alert(error.message);
         })
         .finally(() => setLoading(false));
@@ -70,7 +69,7 @@ function LoginSection({ loading, setLoading, user, setUser }) {
     setLoading(true);
 
     setTimeout(() => {
-      fetch("http://localhost:8080/auth/register", {
+      fetch(`${API_URL}/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
@@ -96,7 +95,6 @@ function LoginSection({ loading, setLoading, user, setUser }) {
         })
         .catch((error) => {
           alert(error.message);
-          setErro(error.message);
         })
         .finally(() => setLoading(false));
     }, 3000);

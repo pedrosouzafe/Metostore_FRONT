@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./SidebarCart.css";
-import { faMoneyBill, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import SidebarProduct from "../sidebar-product";
 import { Link } from "react-router-dom";
 

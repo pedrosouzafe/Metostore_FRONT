@@ -2,7 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ProductsList from "../products-list";
 import Pagination from "../pagination";
-import LoadingSpinner from "../loading-spinner";
+const API_URL = process.env.REACT_APP_API_URL;
 
 function ProductsSearchPage({ addProductToCart }) {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -40,8 +40,8 @@ function ProductsSearchPage({ addProductToCart }) {
       try {
         const url =
           category || query || filtro
-            ? `http://localhost:8080/products/search?size=12&category=${category}&query=${query}&page=${page}&order=${filtro}`
-            : `http://localhost:8080/products?size=12&page=${page}`;
+            ? `${API_URL}/products/search?size=12&category=${category}&query=${query}&page=${page}&order=${filtro}`
+            : `${API_URL}/products?size=12&page=${page}`;
 
         console.log("Buscando:", url);
         const response = await fetch(url);

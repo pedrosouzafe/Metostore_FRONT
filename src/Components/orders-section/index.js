@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./OrdersSection.css";
 import LoadingSpinner from "../loading-spinner";
 import { useNavigate } from "react-router-dom";
+const API_URL = process.env.REACT_APP_API_URL;
 
 function OrdersSection({ userId }) {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ function OrdersSection({ userId }) {
     async function fetchOrders() {
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:8080/orders/user/${userId}`);
+        const res = await fetch(`${API_URL}/orders/user/${userId}`);
         const data = await res.json();
         setOrders(data.content || []);
       } catch (err) {
@@ -30,7 +31,7 @@ function OrdersSection({ userId }) {
     if (productCache[id]) return productCache[id];
 
     try {
-      const res = await fetch(`http://localhost:8080/products/${id}`);
+      const res = await fetch(`${API_URL}/products/${id}`);
       const data = await res.json();
       setProductCache((prev) => ({ ...prev, [id]: data }));
       return data;

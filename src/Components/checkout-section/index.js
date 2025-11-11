@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import LoadingSpinner from "../loading-spinner";
 import SidebarProduct from "../sidebar-product";
 import "./CheckoutSection.css";
+const API_URL = process.env.REACT_APP_API_URL;
 
 function CheckoutSection({
   selectedProducts,
@@ -43,7 +44,7 @@ function CheckoutSection({
     console.log("Pedido enviado:", JSON.stringify(body));
 
     setTimeout(() => {
-      fetch("http://localhost:8080/orders", {
+      fetch(`${API_URL}/orders`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

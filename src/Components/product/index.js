@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 import "./Product.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import Rate from "../rate";
 
 function Product({ id, image, name, rate, price, addProductToCart }) {
